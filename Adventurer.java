@@ -10,6 +10,12 @@ public class Adventurer extends Character {
         this.type = type;
     }
     
+    public int getEXP() {
+        return this.exp;
+    }
+    public String getType() {
+        return this.type;
+    }
     public void expGain(int expGained) {
         this.exp = this.exp + expGained;
     }
