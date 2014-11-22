@@ -26,9 +26,9 @@ public class CarlRPG {
         Thread.sleep(1500);
         Adventurer hero;
         if (classChoice.equals("warrior")) {
-            hero = new Adventurer(name, 20, 20, 4, 1, 3, 3, 1, 0,"warrior");
+            hero = new Adventurer(name, 20, 20, 4, 1, 3, 3, 1, 0,"Warrior");
         } else {
-            hero = new Adventurer(name, 15, 15, 1, 4, 8, 8, 1, 0,"mage");
+            hero = new Adventurer(name, 15, 15, 1, 4, 8, 8, 1, 0,"Mage");
         }
         System.out.println("\nCREATING CHARACTER\n");
         Thread.sleep(1500);
@@ -36,7 +36,7 @@ public class CarlRPG {
         Thread.sleep(250);
         System.out.println("NAME: " + name + "\n");
         Thread.sleep(1500);
-        System.out.println("CLASS: " + hero.getName() + "\n");
+        System.out.println("CLASS: " + hero.getType() + "\n");
         Thread.sleep(500);
         System.out.println("MAX HP: " + hero.getSTA() + "\n");
         Thread.sleep(600);

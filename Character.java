@@ -12,9 +12,11 @@ public class Character {
                      int intel, int clar, int currentclar, int level) {
         this.name = name;
         this.sta = sta;
+        this.currentsta = currentsta;
         this.dex = dex;
         this.intel = intel;
         this.clar = clar;
+        this.currentclar = currentclar;
         this.level = level;
     }
     
