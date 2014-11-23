@@ -1,5 +1,6 @@
 public class Character {
     private String name; //Name
+    private int money; //Money
     private int sta; //Health
     private int currentsta; //Current health
     private int dex; //Max Damage
@@ -8,7 +9,7 @@ public class Character {
     private int currentclar;//current mana
     private int level;//levelup!
     
-    public Character(String name, int sta, int currentsta, int dex, 
+    public Character(String name, int money, int sta, int currentsta, int dex, 
                      int intel, int clar, int currentclar, int level) {
         this.name = name;
         this.sta = sta;
@@ -22,6 +23,9 @@ public class Character {
     
     public String getName() {
         return this.name;
+    }
+    public int getMoney() {
+        return this.money;
     }
     public int getSTA() {
         return this.sta;
@@ -48,6 +52,9 @@ public class Character {
         return this.level / 10;
     }
     
+    public void setMoney(int money) {
+        this.money = this.money + money;
+    }
     public void setSTA(int sta) {
         this.sta = this.sta + sta;
     }

@@ -3,10 +3,10 @@ public class Adventurer extends Character {
     private int currentexp; //current Exp
     private String type; //class
     
-    public Adventurer(String name, int sta, int currentsta, int dex, 
+    public Adventurer(String name, int money, int sta, int currentsta, int dex, 
                       int intel, int clar, int currentclar, int level,
                       int exp, int currentexp, String type) {
-        super(name, sta, currentsta, dex, intel, clar, currentclar, level);
+        super(name, money, sta, currentsta, dex, intel, clar, currentclar, level);
         this.exp = exp;
         this.currentexp = currentexp;
         this.type = type;
