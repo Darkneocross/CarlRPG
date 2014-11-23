@@ -4,7 +4,7 @@ public class Battle {
     public static void main(String[] args) {
         Adventurer hero;
         String name = "Peter";
-        hero = new Adventurer(name, 15, 15, 1, 5, 8, 8, 1, 20, 0, "Mage");
+        hero = new Adventurer(name, 20, 20, 4, 1, 3, 3, 1, 20, 0, "Warrior");
         Monster monster = new Monster("Tyler", 10, 10, 1, 0, 3, 3, 1, 3);
         
         battleHeroTurn(hero, monster);
@@ -69,18 +69,26 @@ public class Battle {
                 } else {
                     int randomSpecial = 0;
                     String randomSpecialAttack = "";
-                    int randomSpecial = (int)(Math.random() * 5) + 1;
+                    randomSpecial = (int)(Math.random() * 10) + 1;
                     if (randomSpecial == 1) {
                         randomSpecialAttack = "C Stick";
                     } else if (randomSpecial == 2) {
-                         randomSpecialAttack = "";
+                         randomSpecialAttack = "Whirlwind strike";
                     } else if (randomSpecial == 3) {
-                         randomSpecialAttack = "";
+                         randomSpecialAttack = "Sword slash";
                     } else if (randomSpecial == 4) {
-                         randomSpecialAttack = "earth";
-                    } else {
-                         randomSpecialAttack = "lighting";
+                         randomSpecialAttack = "Asshole poke";
+                    } else if (randomSpecial == 5) {
+                         randomSpecialAttack = "Sword stab";
                     }
+                     Thread.sleep(1250);
+                     if (randomSpecial > 0 && randomSpecial <= 5) {
+                         System.out.printf("%-25s", "You swing your sword and strike a " + randomSpecialAttack + " attack!\n\n");
+                         int specialDamage = (int)(hero.getDEX() * 1.5);
+                         monster.setCurrentSTA(-1 * specialDamage);
+                     } else {
+                         System.out.printf("%-25s", "You try to perform the attack but " + monster.getName() + " defended!\n\n");
+                     }
                 }
             }
             System.out.printf("%-25s","[" + hero.getName() + "] Lv." + hero.getLevel());
