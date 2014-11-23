@@ -1,5 +1,5 @@
 public class Character {
-    private String name;
+    private String name; //Name
     private int sta; //Health
     private int currentsta; //Current health
     private int dex; //Max Damage
@@ -68,14 +68,6 @@ public class Character {
     }
     public void levelUp() {
         this.level = this.level + 1;
-    }
-    public void statsUp(Adventurer hero, int level) {
-        if (hero.getType().equals("Warrior")) {
-            hero.setSTA(1);
-            if ((hero.getLevel() / 3) == 0) {
-                
-            }
-        }
     }
 }
 
