@@ -1,12 +1,12 @@
 public class Character {
     private String name;
-    private int sta;
-    private int currentsta;
-    private int dex;
-    private int intel;
-    private int clar;
-    private int currentclar;
-    private int level;
+    private int sta; //Health
+    private int currentsta; //Current health
+    private int dex; //Max Damage
+    private int intel; //Max magic damage
+    private int clar; //Max mana
+    private int currentclar;//current mana
+    private int level;//levelup!
     
     public Character(String name, int sta, int currentsta, int dex, 
                      int intel, int clar, int currentclar, int level) {
@@ -44,9 +44,24 @@ public class Character {
     public int getLevel() {
         return this.level;
     }
+    public int getLevelTens() {
+        return this.level / 10;
+    }
     
+    public void setSTA(int sta) {
+        this.sta = this.sta + sta;
+    }
     public void setCurrentSTA(int currentsta) {
-        this.currentsta = currentsta;
+        this.currentsta = this.currentsta + currentsta;
+    }
+    public void setDEX(int dex) {
+        this.dex = this.dex + dex;
+    }
+    public void setINT(int intel) {
+        this.intel = this.intel + intel;
+    }
+    public void setCLAR(int clar) {
+        this.clar = this.clar + clar;
     }
     public void setCurrentCLAR(int currentclar) {
         this.currentclar = currentclar;
@@ -54,7 +69,13 @@ public class Character {
     public void levelUp() {
         this.level = this.level + 1;
     }
-    
-    
+    public void statsUp(Adventurer hero, int level) {
+        if (hero.getType().equals("Warrior")) {
+            hero.setSTA(1);
+            if ((hero.getLevel() / 3) == 0) {
+                
+            }
+        }
+    }
 }
 
