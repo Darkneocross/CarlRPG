@@ -22,7 +22,7 @@ public class Battle {
             int damageDealt = 0;
             int magicDamage = 0;
             int randomDamageSub = (int)(Math.random() * 3);
-            
+            while (true) {
             System.out.println("Choices: ");
             System.out.println("1. Attack");
             System.out.println("2. Item");
@@ -34,80 +34,88 @@ public class Battle {
                 choice = in.nextInt();
             }
             in.close();
-            if (choice == 1) {
-                damageDealt = (hero.getDEX() - randomDamageSub);
-                if (damageDealt <= 0) {
-                    damageDealt = 1;
-                }
-                damageDealt = damageDealt * -1;
-                if (hero.getType().equals("Warrior")) {
-                    System.out.printf("%-25s","You swing your sword!");
-                    System.out.println();
-                    Thread.sleep(1000);
-                    monster.setCurrentSTA(damageDealt);
-                    System.out.printf("\n%-25s","HIT! You did " + -1 * damageDealt + " damage to the " + monster.getName() + ".\n\n");
-                } else {
-                    System.out.printf("\n%-25s","You swing your staff!");
-                    System.out.println();
-                    Thread.sleep(1000);
-                    monster.setCurrentSTA(damageDealt);
-                    System.out.printf("\n%-25s","HIT! You did " + -1 * damageDealt + " damage to the " + monster.getName() + ".\n\n");
-                }
-            } else if (choice == 2) {
-                displayHealth(hero, monster);
-                CarlRPG.showInventory(inventory);
-                
-            } else {
-                if (hero.getType().equals("Mage")) {
-                    String randomMagicSpell = "";
-                    int randomMagicSpellNum = (int)(Math.random() * 5) + 1;
-                    if (randomMagicSpellNum == 1) {
-                        randomMagicSpell = "fire";
-                    } else if (randomMagicSpellNum == 2) {
-                        randomMagicSpell = "wind";
-                    } else if (randomMagicSpellNum == 3) {
-                        randomMagicSpell = "water";
-                    } else if (randomMagicSpellNum == 4) {
-                        randomMagicSpell = "earth";
+                if (choice == 1) {
+                    damageDealt = (hero.getDEX() - randomDamageSub);
+                    if (damageDealt <= 0) {
+                        damageDealt = 1;
+                    }
+                    damageDealt = damageDealt * -1;
+                    if (hero.getType().equals("Warrior")) {
+                        System.out.printf("%-25s","You swing your sword!");
+                        System.out.println();
+                        Thread.sleep(1000);
+                        monster.setCurrentSTA(damageDealt);
+                        System.out.printf("\n%-25s","HIT! You did " + -1 * damageDealt + " damage to " + monster.getName() + ".\n\n");
                     } else {
-                        randomMagicSpell = "lighting";
+                        System.out.printf("\n%-25s","You swing your staff!");
+                        System.out.println();
+                        Thread.sleep(1000);
+                        monster.setCurrentSTA(damageDealt);
+                        System.out.printf("\n%-25s","HIT! You did " + -1 * damageDealt + " damage to " + monster.getName() + ".\n\n");
                     }
-                    Thread.sleep(800);
-                    System.out.printf("%-25s", "You cast a " + randomMagicSpell + " spell!\n");
-                    magicDamage = -1 * (hero.getINT() - randomDamageSub);
-                    monster.setCurrentSTA(magicDamage);
-                    Thread.sleep(1000);
-                    System.out.printf("\n%-25s","HIT! You did " + -1 * magicDamage + " damage to the " + monster.getName() + "\n");
-                    System.out.println();
-                } else {
-                    int randomSpecial = 0;
-                    String randomSpecialAttack = "";
-                    randomSpecial = (int)(Math.random() * 10) + 1;
-                    if (randomSpecial == 1) {
-                        randomSpecialAttack = "C Stick";
-                    } else if (randomSpecial == 2) {
-                        randomSpecialAttack = "Whirlwind strike";
-                    } else if (randomSpecial == 3) {
-                        randomSpecialAttack = "Sword slash";
-                    } else if (randomSpecial == 4) {
-                        randomSpecialAttack = "Asshole poke";
-                    } else if (randomSpecial == 5) {
-                        randomSpecialAttack = "Sword stab";
-                    }
-                    Thread.sleep(1250);
-                    if (randomSpecial > 0 && randomSpecial <= 5) {
-                        System.out.printf("%-25s", "You swing your sword and strike a " + randomSpecialAttack + " attack!\n\n");
-                        int specialDamage = (int)(hero.getDEX() * 1.5);
-                        monster.setCurrentSTA(-1 * specialDamage);
+                    break;
+                } else if (choice == 2) {
+                    displayHealth(hero, monster);
+                    CarlRPG.showInventory(inventory);
+                    break;
+                } else if (choice == 3 && hero.getCurrentCLAR() > 0) {
+                    if (hero.getType().equals("Mage")) {
+                        String randomMagicSpell = "";
+                        int randomMagicSpellNum = (int)(Math.random() * 5) + 1;
+                        if (randomMagicSpellNum == 1) {
+                            randomMagicSpell = "Fire";
+                        } else if (randomMagicSpellNum == 2) {
+                            randomMagicSpell = "Wind";
+                        } else if (randomMagicSpellNum == 3) {
+                            randomMagicSpell = "Water";
+                        } else if (randomMagicSpellNum == 4) {
+                            randomMagicSpell = "Earth";
+                        } else {
+                            randomMagicSpell = "Lighting";
+                        }
+                        Thread.sleep(800);
+                        System.out.printf("%-25s", "You cast a " + randomMagicSpell + " Spell!\n");
+                        magicDamage = -1 * (hero.getINT() - randomDamageSub);
+                        monster.setCurrentSTA(magicDamage);
+                        hero.setCurrentCLAR(hero.getCurrentCLAR() - 1);
+                        Thread.sleep(1000);
+                        System.out.printf("\n%-25s","HIT! You did " + -1 * magicDamage + " damage to " + monster.getName() + "\n");
+                        System.out.println();
                     } else {
-                        System.out.printf("%-25s", "You try to perform the attack but " + monster.getName() + " defended!\n\n");
-                    }
-                    
-                    
+                        int randomSpecial = 0;
+                        String randomSpecialAttack = "";
+                        randomSpecial = (int)(Math.random() * 10) + 1;
+                        if (randomSpecial == 1) {
+                            randomSpecialAttack = "C-Stick";
+                        } else if (randomSpecial == 2) {
+                            randomSpecialAttack = "Whirlwind Strike";
+                        } else if (randomSpecial == 3) {
+                            randomSpecialAttack = "Divine Sword";
+                        } else if (randomSpecial == 4) {
+                            randomSpecialAttack = "Asshole Poke";
+                        } else if (randomSpecial == 5) {
+                            randomSpecialAttack = "Infinite Claymore";
+                        }
+                        Thread.sleep(1250);
+                        if (randomSpecial > 0 && randomSpecial <= 5) {
+                            System.out.printf("%-25s", "You swing your sword and perform a " + randomSpecialAttack + " attack!\n\n");
+                            int specialDamage = (int)(hero.getDEX() * 1.5);
+                            monster.setCurrentSTA(-1 * specialDamage);
+                            
+                        } else {
+                            System.out.printf("%-25s", "You try to perform the attack but " + monster.getName() + " defended!\n\n");
+                        }
+                        hero.setCurrentCLAR(hero.getCurrentCLAR() - 1);
+                       
+                    } break;
+                } else {
+                    System.out.println();
+                    System.out.println("Please choose a valid choice!");
+                    System.out.println();
                 }
+                Thread.sleep(3000);
             }
-            Thread.sleep(3000);
-        } catch (Exception e) {
+        }catch (Exception e) {
             Thread.currentThread().interrupt();
         }
         displayHealth(hero, monster);
@@ -125,6 +133,7 @@ public class Battle {
         System.out.printf("%-25s\n", "HP: " + monster.getCurrentSTA() + "/" + monster.getSTA());
         System.out.printf("%-25s", "MP: " + hero.getCurrentCLAR() + "/" + hero.getCLAR());
         System.out.printf("%-25s", "MP: " + monster.getCurrentCLAR() + "/" + monster.getCLAR() + "\n");
+        System.out.println();
     }
     public static void battleMonsterTurn(Adventurer hero, Monster monster) {
         try {
