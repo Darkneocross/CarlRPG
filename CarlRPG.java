@@ -77,7 +77,7 @@ public class CarlRPG {
             Thread.sleep(3000);
             System.out.println("\nSameer: Here, I will teach you the basics so you can start on your adventure!");
             Thread.sleep(4500);
-            System.out.println("\n" + hero.getName() + ": Okay!\n");
+            System.out.println("\n" + hero.getName() + ": Okay!");
             Thread.sleep(5000);
             System.out.println("\nSameer: Now, let us begin the Academy's lessons.\n");
             Thread.sleep(5000);
@@ -91,7 +91,7 @@ public class CarlRPG {
             Thread.sleep(5000);
             System.out.println("\nSameer: As a 'Warrior' class, your weapon of choice is the sword.");
             Thread.sleep(3000);
-            System.out.println("\n* " + hero.getName() + " has acquired a 'Sword'!");
+            System.out.println("\n* " + hero.getName() + " has acquired a 'Sword'! *");
             Thread.sleep(5000);
             if ((hero.getType()).equals("Warrior")) {
                 System.out.println("\nSameer: Your first attack will hit the monster you are facing with your weapon.");
@@ -128,7 +128,7 @@ public class CarlRPG {
                 }
                 System.out.println(" \n* You did 2 damage to TrainingDummy! * \n");
                 System.out.printf("%-25s","[" + hero.getName() + "] Lv." + hero.getLevel());
-                System.out.printf("%-25s\n","[TrainingDummy]");
+                System.out.printf("%-25s\n","[TrainingDummy] Lv. 1");
                 System.out.printf("%-25s","HP: " + hero.getCurrentSTA() + "/" + hero.getSTA());
                 System.out.printf("%-25s\n", "HP: 3/5");
                 System.out.printf("%-25s", "MP: " + hero.getCurrentCLAR() + "/" + hero.getCLAR());
@@ -138,7 +138,7 @@ public class CarlRPG {
                 System.out.println("\nSameer: Now finish the battle against the practice dummy.\n\n");
                 Thread.sleep(3000);
                 System.out.printf("%-25s","[" + hero.getName() + "] Lv." + hero.getLevel());
-                System.out.printf("%-25s\n","[TrainingDummy]");
+                System.out.printf("%-25s\n","[TrainingDummy] Lv. 1");
                 System.out.printf("%-25s","HP: " + hero.getCurrentSTA() + "/" + hero.getSTA());
                 System.out.printf("%-25s\n", "HP: 3/5");
                 System.out.printf("%-25s", "MP: " + hero.getCurrentCLAR() + "/" + hero.getCLAR());
@@ -156,13 +156,13 @@ public class CarlRPG {
                 }
                 System.out.println(" \n* You did 3 damage to TrainingDummy! * \n");
                 System.out.printf("%-25s","[" + hero.getName() + "] Lv." + hero.getLevel());
-                System.out.printf("%-25s\n","[TrainingDummy]");
+                System.out.printf("%-25s\n","[TrainingDummy] Lv. 1");
                 System.out.printf("%-25s","HP: " + hero.getCurrentSTA() + "/" + hero.getSTA());
                 System.out.printf("%-25s\n", "HP: 0/5");
                 System.out.printf("%-25s", "MP: " + hero.getCurrentCLAR() + "/" + hero.getCLAR());
                 System.out.printf("%-25s", "MP: 5/5");
                 Thread.sleep(2000);
-                System.out.println("\n\n      [[[ BATTLE FINISHED ]]]\n");
+                System.out.println("\n\n\n      [[[ BATTLE FINISHED ]]]\n");
                 Thread.sleep(3000);
                 System.out.println(" \n* You defeated TrainingDummy! *");
                 System.out.println("    * You gained 1 EXP * \n");
@@ -170,9 +170,9 @@ public class CarlRPG {
                 Thread.sleep(2000);
                 System.out.println("Sameer: Congratulations on passing the first lesson!\n");
                 Thread.sleep(1750);
-                System.out.println("Sameer: Now onto the Academy's second lesson!\n\n");
+                System.out.println("Sameer: Now onto the Academy's second lesson!\n");
                 Thread.sleep(5000);
-                System.out.println("\n\n\n---LESSON 2: ITEM USAGE---\n\n\n\n");
+                System.out.println("\n\n\n---LESSON 2: ITEM USAGE---\n\n\n\n\n");
                 Thread.sleep(2600);
                 System.out.println("Sameer: Now I will teach you how to use your items during combat.\n");
                 Thread.sleep(2000);
@@ -193,13 +193,11 @@ public class CarlRPG {
                 System.out.println("\n      [[[ BATTLE INITIATED ]]]\n");
                 Thread.sleep(2000);
                 hero.setCurrentSTA(-5);
-                System.out.println("\nSameer: I lowered your health a little before the fight started.\n");
+                System.out.println("\nSameer: I lowered your health a little before the fight started.");
                 Thread.sleep(2000);
                 inventory.add(new Items("Novice Potion", 5, true));
-                System.out.println("\nSameer: Now use the 'Novice Potion' I added earlier to your inventory to heal yourself.\n");
+                System.out.println("\nSameer: Now use the 'Novice Potion' I added to your inventory to heal yourself.");
                 Thread.sleep(3000);
-                //System.out.println("Sameer: to heal yourself.\n");
-                //Thread.sleep(3000);
                 System.out.println("\nPress the '2' key to open up your inventory.\n");
                 Thread.sleep(3000);
                 System.out.printf("%-25s","[" + hero.getName() + "] Lv." + hero.getLevel());
@@ -220,7 +218,7 @@ public class CarlRPG {
                     attackChoice = in.nextInt();
                     Thread.sleep(3000);
                 }
-                System.out.println("\nPress the '1' key to use the item 'Novice Potion'\n");
+                System.out.println("\nPress the '1' key to use the item 'Novice Potion'");
                     if (attackChoice == 2) {
                     showInventory(inventory);
                 }
@@ -241,7 +239,7 @@ public class CarlRPG {
                 System.out.printf("%-25s", "MP: " + hero.getCurrentCLAR() + "/" + hero.getCLAR());
                 System.out.printf("%-25s", "MP: 5/5");
                 Thread.sleep(5000);
-                System.out.println("\nSameer: Now finish the battle against the training dummy.");
+                System.out.println("\n\nSameer: Now finish the battle against the training dummy.");
                 Thread.sleep(3000);
                 System.out.printf("\n\n%20s", "Choices: ");
                 System.out.println("\n1. Attack\n2. Item\n");
@@ -259,7 +257,7 @@ public class CarlRPG {
                 System.out.printf("%-25s","[" + hero.getName() + "] Lv." + hero.getLevel());
                 System.out.printf("%-25s\n","[TrainingDummy2] Lv. 1");
                 System.out.printf("%-25s","HP: " + hero.getCurrentSTA() + "/" + hero.getSTA());
-                System.out.printf("%-25s\n", "HP: 2/5");
+                System.out.printf("%-25s\n", "HP: 1/5");
                 System.out.printf("%-25s", "MP: " + hero.getCurrentCLAR() + "/" + hero.getCLAR());
                 System.out.printf("%-25s", "MP: 5/5");
                 Thread.sleep(5000);
@@ -291,7 +289,7 @@ public class CarlRPG {
                 Thread.sleep(2000);
                 System.out.println("Sameer: Congratulations on passing the second lesson!\n");
                 Thread.sleep(1750);
-                System.out.println("Sameer: Now onto the Academy's third lesson!\n\n");
+                System.out.println("Sameer: Now onto the Academy's third lesson!\n");
                 Thread.sleep(5000);
                 System.out.println("\n\n\n---LESSON 3: SPELLCASTING ---\n\n\n\n");
                 Thread.sleep(2600);
@@ -313,7 +311,7 @@ public class CarlRPG {
                 Thread.sleep(3000);
                 System.out.println("Sameer: However, spells do come in handy sometimes.\n");
                 Thread.sleep(5000);
-                System.out.println(hero.getName() + "Okay!\n");
+                System.out.println(hero.getName() + ": Okay!\n");
                 Thread.sleep(4000);
                 System.out.println("Sameer: Now you will practice using your spell!\n");
                 Thread.sleep(4000);
@@ -348,7 +346,7 @@ public class CarlRPG {
                 System.out.printf("%-25s", "MP: " + hero.getCurrentCLAR() + "/" + hero.getCLAR());
                 System.out.printf("%-25s", "MP: 5/5");
                 System.out.printf("\n\n%20s", "Choices: ");
-                System.out.println("\n1. Attack\n2. Item\n3. Spell");
+                System.out.println("\n1. Attack\n2. Item\n3. Spell\n");
                 System.out.printf("Choose: ");
                 attackChoice = in.nextInt();
                 Thread.sleep(3000);
@@ -369,7 +367,7 @@ public class CarlRPG {
                 System.out.printf("%-25s", "MP: " + hero.getCurrentCLAR() + "/" + hero.getCLAR());
                 System.out.printf("%-25s", "MP: 5/5");
                 System.out.printf("\n\n%20s", "Choices: ");
-                System.out.println("\n1. Attack\n2. Item\n3. Spell");
+                System.out.println("\n1. Attack\n2. Item\n3. Spell\n");
                 System.out.printf("Choose: ");
                 attackChoice = in.nextInt();
                 Thread.sleep(3000);
@@ -379,7 +377,8 @@ public class CarlRPG {
                     attackChoice = in.nextInt();
                     Thread.sleep(3000);
                 }
-                System.out.printf("You swing your sword and perform a Divine attack!\n\n");
+                System.out.println();
+                System.out.printf("You swing your sword and perform a Divine Sword attack!\n\n");
                 Thread.sleep(4000);
                 System.out.println(" \n* You did 5 damage to TrainingDummy3! * \n");
                 Thread.sleep(2000);
