@@ -35,5 +35,19 @@ public class Adventurer extends Character {
                 hero.setCLAR(1);
             }
         }
+        else {
+            hero.setSTA(1);
+            if ((hero.getLevel() % 4) == 0) {
+                hero.setDEX(1);
+            }
+            if ((hero.getLevel() % 3) == 0) {
+                hero.setINT(1);
+            }
+            if ((hero.getLevel() % 2) == 0) {
+                hero.setCLAR(1);
+            }
+        }
+        hero.setCurrentSTA(hero.getSTA());
+        hero.setCurrentCLAR(hero.getCLAR());
     }
 }
