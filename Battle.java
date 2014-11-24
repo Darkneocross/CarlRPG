@@ -4,7 +4,7 @@ public class Battle {
     public static void main(String[] args) {
         Adventurer hero;
         String name = "Peter";
-        hero = new Adventurer(name, 0, 20, 20, 4, 1, 3, 3, 1, 20, 0, "Warrior");
+        hero = new Adventurer(name, 0, 15, 15, 1, 5, 8, 8, 1, 20, 0, "Mage");
         ArrayList<Items> inventory = new  ArrayList<Items>();
         inventory.add(new Items("Novice Potion", 5, true));
         
@@ -42,11 +42,13 @@ public class Battle {
                 damageDealt = damageDealt * -1;
                 if (hero.getType().equals("Warrior")) {
                     System.out.printf("%-25s","You swing your sword!");
+                    System.out.println();
                     Thread.sleep(1000);
                     monster.setCurrentSTA(damageDealt);
-                    System.out.printf("\n%-25s","HIT! You did " + -1 * damageDealt + " damage to the " + monster.getName() + "\n\n");
+                    System.out.printf("\n%-25s","HIT! You did " + -1 * damageDealt + " damage to the " + monster.getName() + ".\n\n");
                 } else {
                     System.out.printf("\n%-25s","You swing your staff!");
+                    System.out.println();
                     Thread.sleep(1000);
                     monster.setCurrentSTA(damageDealt);
                     System.out.printf("\n%-25s","HIT! You did " + -1 * damageDealt + " damage to the " + monster.getName() + ".\n\n");
@@ -75,7 +77,8 @@ public class Battle {
                     magicDamage = -1 * (hero.getINT() - randomDamageSub);
                     monster.setCurrentSTA(magicDamage);
                     Thread.sleep(1000);
-                    System.out.printf("\n%-25s","HIT! You did " + -1 * magicDamage + " damage to the " + monster.getName() + "\n\n");
+                    System.out.printf("\n%-25s","HIT! You did " + -1 * magicDamage + " damage to the " + monster.getName() + "\n");
+                    System.out.println();
                 } else {
                     int randomSpecial = 0;
                     String randomSpecialAttack = "";
@@ -99,8 +102,8 @@ public class Battle {
                     } else {
                         System.out.printf("%-25s", "You try to perform the attack but " + monster.getName() + " defended!\n\n");
                     }
-                        
-                        
+                    
+                    
                 }
             }
             Thread.sleep(3000);
@@ -187,12 +190,29 @@ public class Battle {
                     if (!heroAlive(hero)) {
                         break;
                     }
+                } else {
+                    battleMonsterTurn(hero,monster);
+                    Thread.sleep(4000);
+                    if (!heroAlive(hero)) {
+                        break;
+                    }
+                    System.out.println("\n");
+                    battleHeroTurn(hero, monster, inventory);
+                    Thread.sleep(4000);
+                    if (!monsterAlive(monster)) {
+                        break;
+                    }
                 }
             }
             if (heroAlive(hero)) {
                 System.out.println("\n\n      [[[ BATTLE FINISHED ]]]\n");
+                System.out.println(" \n* You defeated the " + monster.getName() + "! *");
+                System.out.println(" * You gained " + monster.getEXP()+ " EXP * \n");
+                hero.expGain(monster.getEXP());
             } else {
                 System.out.println("\n\n      [[[ GAME OVER ]]]\n");
+                Thread.sleep(10000);
+                System.exit(0);
             } 
         } catch (Exception e) {
             Thread.currentThread().interrupt();
