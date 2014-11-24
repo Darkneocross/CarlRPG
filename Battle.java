@@ -4,7 +4,7 @@ public class Battle {
     public static void main(String[] args) {
         Adventurer hero;
         String name = "Peter";
-        hero = new Adventurer(name, 0, 15, 15, 1, 5, 8, 8, 1, 20, 0, "Mage");
+        hero = new Adventurer(name, 0, 20, 20, 4, 1, 3, 3, 1, 20, 0, "Warrior");
         ArrayList<Items> inventory = new  ArrayList<Items>();
         inventory.add(new Items("Novice Potion", 5, true));
         
@@ -23,10 +23,11 @@ public class Battle {
             int magicDamage = 0;
             int randomDamageSub = (int)(Math.random() * 3);
             while (true) {
-            System.out.println("Choices: ");
+            System.out.printf("%20s\n", "Choices: ");
             System.out.println("1. Attack");
             System.out.println("2. Item");
             System.out.println("3. Spell");
+            System.out.printf("\nChoose: ");
             Scanner in = new Scanner(System.in);
             choice = in.nextInt();
             while (choice != 1 && choice != 2 && choice != 3) {
@@ -132,7 +133,7 @@ public class Battle {
         System.out.printf("%-25s","HP: " + hero.getCurrentSTA() + "/" + hero.getSTA());
         System.out.printf("%-25s\n", "HP: " + monster.getCurrentSTA() + "/" + monster.getSTA());
         System.out.printf("%-25s", "MP: " + hero.getCurrentCLAR() + "/" + hero.getCLAR());
-        System.out.printf("%-25s", "MP: " + monster.getCurrentCLAR() + "/" + monster.getCLAR() + "\n");
+        System.out.printf("%-25s", "MP: " + monster.getCurrentCLAR() + "/" + monster.getCLAR());
         System.out.println();
     }
     public static void battleMonsterTurn(Adventurer hero, Monster monster) {
@@ -149,6 +150,7 @@ public class Battle {
                 }
             }
             hero.setCurrentSTA(-1 * damageDealt);
+            System.out.println();
             System.out.printf("%-25s","The " + monster.getName() + " attacks you!");
             System.out.println();
             if (damageDealt == 0) {
