@@ -101,6 +101,7 @@ public class Battle {
                         if (randomSpecial > 0 && randomSpecial <= 5) {
                             System.out.printf("%-25s", "You swing your sword and perform a " + randomSpecialAttack + " attack!\n\n");
                             int specialDamage = (int)(hero.getDEX() * 1.5);
+                            System.out.printf("\n%-25s","HIT! You did " + specialDamage + " damage to " + monster.getName() + ".\n\n");
                             monster.setCurrentSTA(-1 * specialDamage);
                             
                         } else {
