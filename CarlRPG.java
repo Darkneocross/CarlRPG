@@ -749,7 +749,7 @@ public class CarlRPG {
                     attackChoice = in.nextInt();
                     Thread.sleep(3000);
                 }
-                System.out.println(" \nYou try to perform the attack but TrainingDummy3 defended!\n");
+                System.out.println(" \nYou try to perform the spell but TrainingDummy3 defended!\n");
                 Thread.sleep(5000);
                 System.out.println("Sameer: Keep trying!\n");
                 Thread.sleep(3000);
@@ -770,7 +770,7 @@ public class CarlRPG {
                     attackChoice = in.nextInt();
                     Thread.sleep(3000);
                 }
-                System.out.println(" \nYou try to perform the attack but TrainingDummy3 defended!");
+                System.out.println(" \nYou try to perform the spells but TrainingDummy3 defended!");
                 Thread.sleep(5000);
                 System.out.println("Sameer: So close! \n");
                 System.out.println();
@@ -839,7 +839,7 @@ public class CarlRPG {
             }
             
         } catch(Exception e) {
-            Thread.currentThread().interrupt();
+            e.printStackTrace();
         }
     }
     public static void chapterTwo(Adventurer hero, ArrayList<Items> inventory) {
