@@ -94,6 +94,9 @@ public class CarlRPG {
             System.out.println("\n* " + hero.getName() + " has acquired a 'Sword'! *");
             Thread.sleep(5000);
             if ((hero.getType()).equals("Warrior")) {
+//              WARRIOR ACADEMY ARC
+//              *******************
+//              *******************
                 System.out.println("\nSameer: Your first attack will hit the monster you are facing with your weapon.");
                 Thread.sleep(5000);
                 System.out.println("\nSameer: To use this attack press the '1' key.");
@@ -219,7 +222,7 @@ public class CarlRPG {
                     Thread.sleep(3000);
                 }
                 System.out.println("\nPress the '1' key to use the item 'Novice Potion'");
-                    if (attackChoice == 2) {
+                if (attackChoice == 2) {
                     showInventory(inventory);
                 }
                 attackChoice = in.nextInt();
@@ -396,8 +399,29 @@ public class CarlRPG {
                 hero.expGain(1);
                 Thread.sleep(2000);
                 System.out.println("Sameer: Congratulations on passing the third and final lesson!\n");
-                Thread.sleep(1750);
-                
+                Thread.sleep(4000);
+                System.out.println("Sameer: You have passed all of the Academy's lessons!\n");
+                Thread.sleep(3000);
+                System.out.println("Sameer: I have taught you all I could and you passed with flying.\n");
+                Thread.sleep(3500);
+                System.out.println("Sameer: Now venture forth into the world and follow your own journey!\n");
+                Thread.sleep(4000);
+                System.out.println("Sameer: Hooray!\n");
+                Thread.sleep(2000);
+                System.out.println("Sameer: Bonzai!\n");
+                Thread.sleep(2000);
+                System.out.println("Sameer: All Hail!\n");
+                Thread.sleep(2000);
+                System.out.println("Sameer: Hen hao!\n");
+                Thread.sleep(5000);
+                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                Thread.sleep(4000);
+                System.out.printf("%130s\n", "======================");
+                System.out.printf("%130s\n", "--      END OF      --");
+                System.out.printf("%130s\n", "--   CHAPTER ONE    --");
+                System.out.printf("%130s\n", "======================");
+                System.out.println("\n\n\n\n\n\n\n\n\n");
+                Thread.sleep(5000);
             } else {
             }
             
